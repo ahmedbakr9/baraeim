@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     // Future.delayed(Duration(seconds: 10),() {
     //
     // },);
-    Timer.periodic(Duration(minutes: 5), (timer) {
+    Timer.periodic(Duration(hours: 2), (timer) {
              showDialog(
         context: context,
         builder: (context) {
