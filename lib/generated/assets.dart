@@ -7,6 +7,8 @@ class Assets {
   static const String assetsActiveProfile = 'assets/activeProfile.png';
   static const String assetsActivePulse = 'assets/activePulse.png';
   static const String assetsBabyImage = 'assets/babyImage.png';
+  static const String assetsBigMedicine = 'assets/bigMedicine.png';
+  static const String assetsBlackBackGround = 'assets/blackBackGround.png';
   static const String assetsBottleWaterImage = 'assets/bottleWaterImage.png';
   static const String assetsDrugsImage = 'assets/drugsImage.png';
   static const String assetsExerciseIcon = 'assets/exerciseIcon.png';
@@ -14,6 +16,7 @@ class Assets {
   static const String assetsHeaderActiveIcon = 'assets/headerActiveIcon.png';
   static const String assetsImage = 'assets/image.png';
   static const String assetsLengthIcon = 'assets/lengthIcon.png';
+  static const String assetsMedicine = 'assets/medicine.png';
   static const String assetsNotActiveAlarm = 'assets/notActiveAlarm.png';
   static const String assetsNotActiveProfile = 'assets/notActiveProfile.png';
   static const String assetsNotActivePulse = 'assets/notActivePulse.png';

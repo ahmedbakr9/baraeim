@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../assets.dart';
 import '../../../home_page/presentation/pages/home_screen.dart';
+import '../../../medicines_page/presentation/pages/medicines_screen.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
@@ -32,16 +33,16 @@ class _BasePageState extends State<BasePage> {
     [
       Assets.activeProfile,
       Assets.notActiveProfile,
-      "profile",
+      "Profile",
     ],
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(index: pageIndex, children: [
+      body: IndexedStack(index: pageIndex, children: const [
         HomeScreen(),
-        HomeScreen(),
+        MedicinesScreen(),
         HomeScreen(),
         HomeScreen(),
       ]),
@@ -50,7 +51,7 @@ class _BasePageState extends State<BasePage> {
         notchMargin: 0.9,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         child: SizedBox(
-          height: 88,
+          height: 86,
           child: BottomNavigationBar(
             backgroundColor: ColorsApp.white,
             selectedLabelStyle: const TextStyle(
@@ -68,7 +69,6 @@ class _BasePageState extends State<BasePage> {
               pageIndex = value;
               setState(() {});
             },
-
             type: BottomNavigationBarType.fixed,
             //  backgroundColor: Theme.of(context).primaryColor,
             selectedItemColor: Colors.black87,
@@ -82,9 +82,11 @@ class _BasePageState extends State<BasePage> {
                     pageIndex == index
                         ? Image.asset(
                             Assets.headerActiveIcon,
-width: 88,
+                            width: 88,height: 6,
                           )
-                        : SizedBox(height: 6,),
+                        : SizedBox(
+                            height: 6,
+                          ),
                     Padding(
                       padding: EdgeInsets.symmetric(vertical: 8),
                       child: Image.asset(

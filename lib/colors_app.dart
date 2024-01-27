@@ -10,6 +10,7 @@ class ColorsApp{
   static const Color indio=Color(0xff6A7AFA);
   static const Color green=Color(0xff58CF99);
   static const Color orange=Color(0xffFF9D00);
+  static const Color subtitleColor=Color(0xff8C8A8A);
   static const Color white=Colors.white;
   static const Color black=Colors.black;
 }
