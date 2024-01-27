@@ -14,7 +14,7 @@ final String image;
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(MedicineDetailsScreen());
+        Navigator.push(context,MaterialPageRoute(builder: (context) => MedicineDetailsScreen(),));
       },
       child: Container(
         clipBehavior: Clip.hardEdge,

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  const SafeArea(
-      child: GetMaterialApp(
+      child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
         home: HealthyDietScreen(),

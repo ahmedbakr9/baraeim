@@ -16,8 +16,7 @@ class WaterDialog extends StatelessWidget {
         horizontal: 70,
         // vertical: 30,
       ),
-      contentPadding: const EdgeInsets.symmetric(
-          vertical: 30, horizontal: 20),
+      contentPadding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -46,21 +45,29 @@ class WaterDialog extends StatelessWidget {
                 color: ColorsApp.textColor),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 14,),
+          const SizedBox(
+            height: 14,
+          ),
           InkWell(
             onTap: () {
-
-              Get.back();
+              Navigator.pop(context);
             },
-            child: Container(alignment: Alignment.center,
+            child: Container(
+              alignment: Alignment.center,
               height: 25,
               width: 120,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
                 color: ColorsApp.primary,
               ),
-              child:
-              const Text('yes',style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,fontFamily: 'Poppins',color: ColorsApp.white),),
+              child: const Text(
+                'yes',
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: 'Poppins',
+                    color: ColorsApp.white),
+              ),
             ),
           )
         ],
