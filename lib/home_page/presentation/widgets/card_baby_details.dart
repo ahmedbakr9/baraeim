@@ -17,14 +17,14 @@ final String text;
       children: [
         Image.asset(
           image,
-          height: 24,
+          height: 20,
         ),
          SizedBox(height: 4,),
          Text(
           value,
           style: const TextStyle(
             color: ColorsApp.textColor,
-            fontSize: 15,fontFamily: 'Poppins',
+            fontSize: 13,fontFamily: 'Poppins',
             fontWeight: FontWeight.w400,
           ),
         ),

@@ -28,7 +28,7 @@ class _HeaderHomeScreenState extends State<HeaderHomeScreen> {
   int selectIndex=2;
   @override
   Widget build(BuildContext context) {
-   
+   var size=MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 44.0),
       child: Column(
@@ -107,10 +107,10 @@ class _HeaderHomeScreenState extends State<HeaderHomeScreen> {
                   Stack(
                     alignment: Alignment.center,
                     children: [
-                      const SizedBox(
-                        height: 144,
-                        width: 144,
-                        child: CircularProgressIndicator(
+                       SizedBox(
+                        height: size.width*.35,
+                        width: size.width*.35,
+                        child: const CircularProgressIndicator(
                           value: .7,
                           backgroundColor: ColorsApp.white,
                           strokeWidth: 8,
@@ -119,8 +119,8 @@ class _HeaderHomeScreenState extends State<HeaderHomeScreen> {
                       ),
                       Image.asset(
                         Assets.babyImage,
-                        height: 85,
-                        width: 78,
+                        height: size.width*.25,
+                        width: size.width*.25,
                       ),
                     ],
                   ),
