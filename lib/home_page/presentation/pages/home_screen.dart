@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),
                             height: 100,
                             width: 100,
                             decoration: BoxDecoration(
@@ -86,23 +86,30 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Image.asset(
-                                  ServiceModel.service[index].image,
-                                  height: 24,
+                                Expanded(flex:2,
+                                  child: Image.asset(
+                                    ServiceModel.service[index].image,
+                                    // height: 24,
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Text(
-                                  ServiceModel.service[index].text,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: ColorsApp.white,
-                                    fontSize: 12,
-                                    fontFamily: 'Poppins',
+                                // const SizedBox(
+                                //   height: 8,
+                                // ),
+                                Expanded(flex:3,
+                                  child: Center(
+                                    child: Text(
+                                      ServiceModel.service[index].text,
+                                      textAlign: TextAlign.center,
+                                      style: const TextStyle(
+                                        color: ColorsApp.white,
+                                        fontSize: 12,
+                                        fontFamily: 'Poppins',
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ],
