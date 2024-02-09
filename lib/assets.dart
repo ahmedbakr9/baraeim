@@ -22,4 +22,9 @@ class Assets{
   static const String activePulse = 'assets/activePulse.png';
   static const String medicine = 'assets/medicine.png';
   static const String headerActiveIcon = 'assets/headerActiveIcon.png';
+  static const String profileImage = 'assets/profileImge.png';
+  static const String editIcon = 'assets/editIcon.png';
+  static const String logoutIcon = 'assets/logoutIcon.png';
+  static const String userIcon = 'assets/userIcon.png';
+  static const String patternBackGround = 'assets/patternBackGround.png';
 }

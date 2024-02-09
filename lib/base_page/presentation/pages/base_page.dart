@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../assets.dart';
 import '../../../home_page/presentation/pages/home_screen.dart';
 import '../../../medicines_page/presentation/pages/medicines_screen.dart';
+import '../../../profile_page/presentation/pages/profile_screen.dart';
 
 class BasePage extends StatefulWidget {
   const BasePage({super.key});
@@ -44,7 +45,7 @@ class _BasePageState extends State<BasePage> {
         HomeScreen(),
         MedicinesScreen(),
         HomeScreen(),
-        HomeScreen(),
+        ProfileScreen(),
       ]),
       bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),

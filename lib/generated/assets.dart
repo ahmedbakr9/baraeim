@@ -11,17 +11,22 @@ class Assets {
   static const String assetsBlackBackGround = 'assets/blackBackGround.png';
   static const String assetsBottleWaterImage = 'assets/bottleWaterImage.png';
   static const String assetsDrugsImage = 'assets/drugsImage.png';
+  static const String assetsEditIcon = 'assets/editIcon.png';
   static const String assetsExerciseIcon = 'assets/exerciseIcon.png';
   static const String assetsFoodImage = 'assets/foodImage.png';
   static const String assetsHeaderActiveIcon = 'assets/headerActiveIcon.png';
   static const String assetsImage = 'assets/image.png';
   static const String assetsLengthIcon = 'assets/lengthIcon.png';
+  static const String assetsLogoutIcon = 'assets/logoutIcon.png';
   static const String assetsMedicine = 'assets/medicine.png';
   static const String assetsNotActiveAlarm = 'assets/notActiveAlarm.png';
   static const String assetsNotActiveProfile = 'assets/notActiveProfile.png';
   static const String assetsNotActivePulse = 'assets/notActivePulse.png';
   static const String assetsNotActivehome = 'assets/notActivehome.png';
+  static const String assetsPatternBackGround = 'assets/patternBackGround.png';
+  static const String assetsProfileImge = 'assets/profileImge.png';
   static const String assetsStepsIcon = 'assets/stepsIcon.png';
+  static const String assetsUserIcon = 'assets/userIcon.png';
   static const String assetsWeightIcon = 'assets/weightIcon.png';
 
 }
