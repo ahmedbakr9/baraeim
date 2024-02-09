@@ -85,11 +85,11 @@ class _BasePageState extends State<BasePage> {
                             Assets.headerActiveIcon,
                             width: 88,height: 6,
                           )
-                        : SizedBox(
+                        : const SizedBox(
                             height: 6,
                           ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.symmetric(vertical: 8),
                       child: Image.asset(
                         pageIndex == index ? e[0] : e[1],
                         height: 24,

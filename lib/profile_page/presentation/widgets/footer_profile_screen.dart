@@ -12,7 +12,7 @@ class FooterProfileScreen extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
       decoration: BoxDecoration(
           color: ColorsApp.white, borderRadius: BorderRadius.circular(5)),
-      child: Column(
+      child:  const Column(
         children: [
           CardActionImage(
             title: 'Add account',

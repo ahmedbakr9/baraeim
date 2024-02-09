@@ -12,10 +12,10 @@ class HealthyDietScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorsApp.white,
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back,color: ColorsApp.black,),
+        leading: const Icon(Icons.arrow_back,color: ColorsApp.black,),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           'A Healthy Diet',
           style: TextStyle(
             color: ColorsApp.textColor,
@@ -34,7 +34,7 @@ class HealthyDietScreen extends StatelessWidget {
             mainAxisSpacing: 15,
           ),
           itemBuilder: (context, index) {
-            return CardHealthyDiet(image: Assets.foodImage,text: 'Fried Riced with egg Fresh',);
+            return const CardHealthyDiet(image: Assets.foodImage,text: 'Fried Riced with egg Fresh',);
           },
           itemCount: 20,
         ),

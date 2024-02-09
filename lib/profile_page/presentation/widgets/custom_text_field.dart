@@ -58,6 +58,7 @@ class CustomTextField extends StatelessWidget {
             filled: true,
             fillColor: ColorsApp.tFBackGroundColor,
             focusColor: ColorsApp.tFBackGroundColor,
+
           ),
         )
       ],

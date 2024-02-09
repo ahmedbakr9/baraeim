@@ -25,11 +25,11 @@ class HeaderProfileScreen extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            child: Image.asset(Assets.profileImage),
             decoration: BoxDecoration(
               border: Border.all(color: ColorsApp.white, width: 2),
               shape: BoxShape.circle,
             ),
+            child: Image.asset(Assets.profileImage),
           ),
           const SizedBox(
             width: 13,

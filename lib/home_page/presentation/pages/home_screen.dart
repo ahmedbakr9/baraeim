@@ -7,6 +7,7 @@ import 'package:baraeim/home_page/presentation/widgets/water_dialog.dart';
 import 'package:flutter/material.dart';
 
 import '../../../colors_app.dart';
+import '../../../healthy_diet_page/presentation/pages/healthy_diet_screen.dart';
 import '../widgets/card_baby_details.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,14 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
     //
     // },);
     Timer.periodic(const Duration(hours: 2), (timer) {
-             showDialog(
+      showDialog(
         context: context,
         builder: (context) {
           return const WaterDialog();
         },
       );
-    })
-    ;
+    });
     super.initState();
   }
 
@@ -76,43 +76,58 @@ class _HomeScreenState extends State<HomeScreen> {
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 10),
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              color: ServiceModel.service[index].color,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Expanded(flex:2,
-                                  child: Image.asset(
-                                    ServiceModel.service[index].image,
-                                    // height: 24,
-                                    fit: BoxFit.fill,
-                                  ),
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      ServiceModel.service[index].page,
                                 ),
-                                // const SizedBox(
-                                //   height: 8,
-                                // ),
-                                Expanded(flex:3,
-                                  child: Center(
-                                    child: Text(
-                                      ServiceModel.service[index].text,
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        color: ColorsApp.white,
-                                        fontSize: 12,
-                                        fontFamily: 'Poppins',
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12, vertical: 10),
+                              height: 100,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: ServiceModel.service[index].color,
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    flex: 2,
+                                    child: Image.asset(
+                                      ServiceModel.service[index].image,
+                                      // height: 24,
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  // const SizedBox(
+                                  //   height: 8,
+                                  // ),
+                                  Expanded(
+                                    flex: 3,
+                                    child: Center(
+                                      child: Text(
+                                        ServiceModel.service[index].text,
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                          color: ColorsApp.white,
+                                          fontSize: 12,
+                                          fontFamily: 'Poppins',
+                                        ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         },
