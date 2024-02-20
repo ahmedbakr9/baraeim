@@ -4,8 +4,8 @@ import '../../../assets.dart';
 import '../../../colors_app.dart';
 
 class HeaderHealthyDietScreen extends StatelessWidget {
-  const HeaderHealthyDietScreen({super.key});
-
+  const HeaderHealthyDietScreen({super.key, required this.image});
+final String image;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -43,8 +43,8 @@ class HeaderHealthyDietScreen extends StatelessWidget {
               elevation: 0,
             ),
             Expanded(
-                child: Image.asset(
-                  Assets.foodImage,
+                child: Image.network(
+                  image,
                   fit: BoxFit.fill,
                 ))
           ],

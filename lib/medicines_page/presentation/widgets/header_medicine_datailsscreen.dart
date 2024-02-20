@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import '../../../assets.dart';
 
 class HeaderMedicineDetailsScreen extends StatelessWidget {
-  const HeaderMedicineDetailsScreen({super.key});
-
+  const HeaderMedicineDetailsScreen({super.key, required this.image});
+final String image;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -16,8 +16,8 @@ class HeaderMedicineDetailsScreen extends StatelessWidget {
         clipBehavior: Clip.hardEdge,
         height: size.height / 2,
         width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage( fit:BoxFit.fill ,image: AssetImage(Assets.bigMedicine,),),
+        decoration:  BoxDecoration(
+          image: DecorationImage( fit:BoxFit.fill ,image: NetworkImage(image,),),
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(40),
           ),

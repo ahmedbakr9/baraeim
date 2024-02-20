@@ -3,18 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../assets.dart';
+import '../../data/models/all_medicine_diets_model.dart';
 import '../pages/medicine_details_screen.dart';
 
 class CardMedicine extends StatelessWidget {
-  const CardMedicine({super.key, required this.title, required this.subtitle, required this.image});
-final String title;
-final String subtitle;
-final String image;
+  const CardMedicine({super.key,  required this.medicine});
+ final  AllMedicineModel medicine;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,MaterialPageRoute(builder: (context) => MedicineDetailsScreen(),));
+        Navigator.push(context,MaterialPageRoute(builder: (context) =>  MedicineDetailsScreen(medicineID: medicine.id??0,),));
       },
       child: Container(
         clipBehavior: Clip.hardEdge,
@@ -26,18 +25,18 @@ final String image;
         ),
         child: Column(children: [
           Expanded(
-
-            child: Image.asset(image,fit: BoxFit.cover,width: double.infinity,),flex: 4,),
+            flex: 4,
+            child: Image.network(medicine.image??'',fit: BoxFit.cover,width: double.infinity,),),
            Expanded(flex: 2,
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 12.0),
+              padding:  const EdgeInsets.symmetric(horizontal: 12.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
 
                 children: [
-                  Text(title,style: TextStyle(fontSize: 15,color: ColorsApp.textColor),),
-                  Text(subtitle,style: TextStyle(fontSize: 13,overflow: TextOverflow.ellipsis),maxLines: 1,),
+                  Text(medicine.name??'',style: const TextStyle(fontSize: 15,color: ColorsApp.textColor),),
+                  Text(medicine.title??'',style: const TextStyle(fontSize: 13,overflow: TextOverflow.ellipsis),maxLines: 1,),
                 ],
               ),
             ),

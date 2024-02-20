@@ -1,18 +1,47 @@
 import 'package:baraeim/assets.dart';
 import 'package:baraeim/colors_app.dart';
 import 'package:flutter/material.dart';
-
+import 'package:dio/dio.dart';
+import '../../data/models/all_healthy_diets_model.dart';
+import '../../domain/repositories/fech_all_healthy_diet_repository.dart';
 import '../widgets/card_healthy_diet.dart';
 
-class HealthyDietScreen extends StatelessWidget {
+class HealthyDietScreen extends StatefulWidget {
   const HealthyDietScreen({super.key});
+
+  @override
+  State<HealthyDietScreen> createState() => _HealthyDietScreenState();
+}
+
+List<AllHealthyDietsModel> allHealthyDiets = [];
+
+fetchData() async {
+  FetchAllHealthyDietsRepository fetchAllHealthyDietsRepository =
+      FetchAllHealthyDietsRepository();
+  allHealthyDiets = await fetchAllHealthyDietsRepository.getAllHealthyDiets();
+}
+
+class _HealthyDietScreenState extends State<HealthyDietScreen> {
+  @override
+  void initState() {
+    fetchData();
+    setState(() {});
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorsApp.white,
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back,color: ColorsApp.black,),
+        leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back,
+              color: ColorsApp.black,
+            )),
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: const Text(
@@ -34,9 +63,11 @@ class HealthyDietScreen extends StatelessWidget {
             mainAxisSpacing: 15,
           ),
           itemBuilder: (context, index) {
-            return const CardHealthyDiet(image: Assets.foodImage,text: 'Fried Riced with egg Fresh',);
+            return CardHealthyDiet(
+              healthyDiets: allHealthyDiets[index],
+            );
           },
-          itemCount: 20,
+          itemCount: allHealthyDiets.length,
         ),
       ),
     );

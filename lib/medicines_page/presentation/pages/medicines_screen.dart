@@ -1,11 +1,34 @@
 import 'package:baraeim/assets.dart';
 import 'package:baraeim/colors_app.dart';
+import 'package:baraeim/healthy_diet_page/presentation/pages/healthy_diet_screen.dart';
 import 'package:baraeim/medicines_page/presentation/widgets/card_medicine.dart';
 import 'package:flutter/material.dart';
 
-class MedicinesScreen extends StatelessWidget {
+import '../../data/models/all_medicine_diets_model.dart';
+import '../../domain/repositories/fetch_medicine_repository.dart';
+
+class MedicinesScreen extends StatefulWidget {
   const MedicinesScreen({super.key});
 
+  @override
+  State<MedicinesScreen> createState() => _MedicinesScreenState();
+}
+List<AllMedicineModel > medicineDetails=[];
+fetchData()async{
+  FetchAllMedicineRepository fetchAllHealthyDietsRepository=FetchAllMedicineRepository();
+  medicineDetails =await fetchAllHealthyDietsRepository.getAllMedicine();
+
+
+}
+
+class _MedicinesScreenState extends State<MedicinesScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchData();
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
@@ -50,11 +73,9 @@ class MedicinesScreen extends StatelessWidget {
                   mainAxisSpacing: 15,
                 ),
                 itemBuilder: (context, index) {
-                  return CardMedicine(title: 'Medicine Name',
-                    subtitle: 'Medicine Name',
-                    image: Assets.medicine,);
+                  return CardMedicine(medicine: medicineDetails[index],);
                 },
-                itemCount: 20,
+                itemCount: medicineDetails.length,
               ),
             )
           ],

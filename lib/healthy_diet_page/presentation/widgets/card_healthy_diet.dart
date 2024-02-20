@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import '../../../assets.dart';
 import '../../../colors_app.dart';
+import '../../data/models/all_healthy_diets_model.dart';
 import '../pages/healthy_diet_details_screen.dart';
 
 class CardHealthyDiet extends StatelessWidget {
-  const CardHealthyDiet({super.key, required this.image, required this.text});
+  const CardHealthyDiet({super.key, required this.healthyDiets, });
 
-  final String image;
-  final String text;
+  final AllHealthyDietsModel healthyDiets;
+
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(context,MaterialPageRoute(builder: (context) => const HealthyDietDetailsScreen(),));
+        Navigator.push(context,MaterialPageRoute(builder: (context) =>  HealthyDietDetailsScreen(healthyDietId: healthyDiets.id??0),));
       },
       child: Container(
         padding: const EdgeInsets.all(13),
@@ -26,9 +27,9 @@ class CardHealthyDiet extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Expanded(child: Image.asset(image)),
+            Expanded(child: Image.network(healthyDiets.image??"")),
             Text(
-              text,
+              healthyDiets.title??'',
               style: const TextStyle(
                   fontSize: 16,
                   color: ColorsApp.white,

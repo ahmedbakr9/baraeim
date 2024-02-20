@@ -160,10 +160,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: Image.asset(
-                  Assets.image,
-                  height: 160,
-                  width: double.infinity,
+                child: Column(
+                  children: [
+                    Image.asset(
+                      Assets.image,
+                      height: 160,
+                      width: double.infinity,
+                    ),const SizedBox(height: 10,),
+                    const Text(
+                      'Avoid unsafe activities that carry a high risk of falling or that may cause trauma to your abdomen',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )
+                  ],
                 ),
               )
             ],

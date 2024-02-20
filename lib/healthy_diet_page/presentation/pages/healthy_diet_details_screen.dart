@@ -4,37 +4,73 @@ import 'package:get/get.dart';
 
 import '../../../assets.dart';
 import '../../../colors_app.dart';
+import '../../data/models/healthy_diets_details_model.dart';
+import '../../domain/repositories/fech_all_healthy_diet_repository.dart';
+import '../../domain/repositories/fech_healthy_diet_details_repository.dart';
 import '../widgets/card_healthy_diet.dart';
 
-class HealthyDietDetailsScreen extends StatelessWidget {
-  const HealthyDietDetailsScreen({super.key});
+class HealthyDietDetailsScreen extends StatefulWidget {
+  const HealthyDietDetailsScreen({super.key, required this.healthyDietId});
+final int healthyDietId;
+  @override
+  State<HealthyDietDetailsScreen> createState() =>
+      _HealthyDietDetailsScreenState();
+}
+
+HealthyDietDetailsModel healthyDietsDetails = HealthyDietDetailsModel();
+List foodDetails = [
+  {
+    'title': 'Colories',
+    'mount': '190',
+    'countUnit': 'kcal',
+  },
+  {
+    'title': 'Fat',
+    'mount': '90',
+    'countUnit': 'g',
+  },
+  {
+    'title': 'Protein',
+    'mount': '190',
+    'countUnit': 'g',
+  },
+  {
+    'title': 'Carbs',
+    'mount': '190',
+    'countUnit': 'g',
+  },
+];
+
+
+
+class _HealthyDietDetailsScreenState extends State<HealthyDietDetailsScreen> {
+  fetchData() async {
+    FetchHealthyDietsDetailsRepository fetchAllHealthyDietsRepository =
+    FetchHealthyDietsDetailsRepository();
+    healthyDietsDetails =
+    await fetchAllHealthyDietsRepository.getAllHealthyDiets(id: widget.healthyDietId);
+    foodDetails[0]['mount'] = healthyDietsDetails.calories;
+    foodDetails[1]['mount'] = healthyDietsDetails.fat;
+    foodDetails[2]['mount'] = healthyDietsDetails.protein;
+    foodDetails[3]['mount'] = healthyDietsDetails.carbs;
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    fetchData();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
-List foodDetails=[
-  {
-    'title':'Colories',
-    'mount':'190',
-    'countUnit':'kcal',
-  },{
-    'title':'Fat',
-    'mount':'90',
-    'countUnit':'g',
-  },{
-    'title':'Protein',
-    'mount':'190',
-    'countUnit':'g',
-  },{
-    'title':'Carbs',
-    'mount':'190',
-    'countUnit':'g',
-  },
-];
     return Scaffold(
       backgroundColor: ColorsApp.white,
       body: Column(
         children: [
-          HeaderHealthyDietScreen(),
+          HeaderHealthyDietScreen(
+            image: healthyDietsDetails.image ?? '',
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -43,27 +79,29 @@ List foodDetails=[
                   const SizedBox(
                     height: 24,
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Fried Riced with egg Fresh',
-                        style: TextStyle(
+                        healthyDietsDetails.title ?? '',
+                        style: const TextStyle(
                           fontSize: 20,
                         ),
                       ),
-                      Icon(Icons.bookmark_border_rounded)
+                      const Icon(Icons.bookmark_border_rounded)
                     ],
                   ),
                   const SizedBox(
                     height: 20,
                   ),
-                  const Text(
-                    'This is perfect for the appetizer or which is health benefits.It includes broccoli, cabbage and spinach. ',
-                    style: TextStyle(
+                  Text(
+                    healthyDietsDetails.description ?? '',
+                    style: const TextStyle(
                         fontSize: 14, color: ColorsApp.subtitleColor),
                   ),
-                  SizedBox(height: 26,),
+                  const SizedBox(
+                    height: 26,
+                  ),
                   Row(
                     children: [
                       Expanded(
@@ -76,20 +114,22 @@ List foodDetails=[
                             mainAxisSpacing: 15,
                           ),
                           itemBuilder: (context, index) {
-                            return  Column(
+                            return Column(
                               children: [
                                 Text(
                                   '${foodDetails[index]['title']}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     color: ColorsApp.black,
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
-                                SizedBox(height: 4,),
+                                const SizedBox(
+                                  height: 4,
+                                ),
                                 Text(
                                   '${foodDetails[index]['mount']} ${foodDetails[index]['countUnit']} ',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 14,
                                     color: ColorsApp.subtitleColor,
                                     fontWeight: FontWeight.w500,
