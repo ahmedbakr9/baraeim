@@ -4,6 +4,7 @@ import 'package:baraeim/healthy_diet_page/presentation/pages/healthy_diet_screen
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'growth_test_page/presentation/pages/growth_questions.dart';
 import 'growth_test_page/presentation/pages/growth_test_screen.dart';
 import 'home_page/presentation/pages/home_screen.dart';
 
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
 
         debugShowCheckedModeBanner: false,
-        home: BasePage(),
+        home: GrowthQuestions(),
       ),
     );
   }
